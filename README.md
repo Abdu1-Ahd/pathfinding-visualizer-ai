@@ -86,7 +86,7 @@ Follow these simple steps:
 **1. Clone the repository**
 
 ```bash
-git clone https://github.com/Abdu1-Ahd/pathfinding-visualizer-ai.git
+git clone https://github.com/Abdu1-Ahd/pathfinding-visualizer.git
 ```
 
 **2. Go into the project folder**
