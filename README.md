@@ -1,5 +1,10 @@
 # 🧭 Pathfinding Visualizer — AI Search Algorithms
 
+![Python](https://img.shields.io/badge/Python-3.7%2B-blue?logo=python&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
+![Built with](https://img.shields.io/badge/Built%20with-Tkinter-orange)
+
 > **Watch how AI finds the shortest path, step by step!**
 
 This is an interactive **Pathfinding Algorithm Visualizer** built with Python. It lets you draw walls on a grid, pick a search algorithm, and then watch it explore the map in real time to find the best route from the **start node** to the **goal node**.
