@@ -1,0 +1,8 @@
+# No external dependencies required.
+# This project uses only Python standard libraries:
+#   - tkinter (included with Python)
+#   - heapq
+#   - collections
+#   - math
+#   - random
+#   - time
