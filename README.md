@@ -15,25 +15,55 @@ Think of it like a maze solver — but you get to see every decision the AI make
 
 ## 🤖 Algorithms Implemented
 
-### A\* (A-Star) Algorithm
+This project includes **7 search algorithms** — both informed (use heuristics) and uninformed (explore blindly).
+
+### Informed Search Algorithms
+
+These algorithms use a **heuristic** — a smart guess of how far the goal is — to decide which cell to explore next.
+
+#### A\* (A-Star) Algorithm
 
 A\* is one of the smartest pathfinding algorithms out there. It combines two things:
 
 - **How far you've already walked** (the actual cost from the start)
 - **How far you think you still need to go** (a heuristic estimate to the goal)
 
-By adding both together, A\* always picks the most promising cell to explore next. That's why it finds the **shortest path** and does it efficiently.
+By adding both together, A\* always picks the most promising cell to explore next. That's why it finds the **shortest path** and does it efficiently. It's the gold standard for pathfinding.
 
-### Greedy Best-First Search (GBFS)
+#### Greedy Best-First Search (GBFS)
 
 GBFS is simpler — it only cares about **how close a cell looks to the goal** (the heuristic). It doesn't track how far it has already traveled. This makes it faster in some cases, but it doesn't always find the shortest path. It's "greedy" because it rushes toward the goal without looking back.
 
-Both algorithms support two heuristic functions:
+Both A\* and GBFS support two heuristic functions:
 
 | Heuristic | How It Works                                             |
 | --------- | -------------------------------------------------------- |
 | Manhattan | Counts horizontal + vertical distance (like city blocks) |
 | Euclidean | Measures straight-line distance (as the crow flies)      |
+
+### Uninformed Search Algorithms
+
+These algorithms have **no idea** where the goal is. They explore the grid blindly, following their own rules until they stumble upon the goal.
+
+#### Breadth-First Search (BFS)
+
+BFS explores the grid **level by level** — it checks all cells 1 step away, then 2 steps away, then 3, and so on. Because it expands outward evenly in all directions, it **always finds the shortest path** (when all steps cost the same). It's simple, reliable, and easy to understand.
+
+#### Depth-First Search (DFS)
+
+DFS picks one direction and goes **as deep as possible** before backtracking. It's like walking into a maze and always turning left until you hit a dead end. It uses less memory than BFS, but the path it finds is usually **not the shortest** — it just finds _a_ path.
+
+#### Uniform Cost Search (UCS)
+
+UCS is like BFS, but smarter about costs. Instead of expanding level by level, it always expands the cell with the **lowest total cost so far**. This means it **always finds the cheapest path**, even when different steps have different costs. Think of it as A\* without the heuristic.
+
+#### Iterative Deepening Depth-First Search (IDDFS)
+
+IDDFS combines the best of BFS and DFS. It runs DFS with a depth limit of 1, then 2, then 3, and so on — going deeper each time. This way it uses **low memory like DFS** but **guarantees the shortest path like BFS**. It re-explores some cells, but that's a small price for the best of both worlds.
+
+#### Bidirectional BFS
+
+Bidirectional BFS runs **two BFS searches at the same time** — one from the start and one from the goal. When the two searches meet in the middle, the path is found. This can be **much faster** than regular BFS because each search only needs to explore half the distance.
 
 ---
 
@@ -77,6 +107,26 @@ Both algorithms support two heuristic functions:
 
 ![GBFS Manhattan Worst Case](screenshots/Worst%20case_GBFS_Man.png)
 
+### BFS
+
+![BFS](screenshots/BFS.png)
+
+### DFS
+
+![DFS](screenshots/DFS.png)
+
+### UCS
+
+![UCS](screenshots/UCS.png)
+
+### IDDFS
+
+![IDDFS](screenshots/IDDFS.png)
+
+### Bidirectional BFS
+
+![Bidirectional BFS](screenshots/Bidirectional%20BFS.png)
+
 ---
 
 ## 🚀 How to Run the Project
@@ -92,7 +142,7 @@ git clone https://github.com/Abdu1-Ahd/pathfinding-visualizer.git
 **2. Go into the project folder**
 
 ```bash
-cd pathfinding-visualizer-ai
+cd pathfinding-visualizer
 ```
 
 **3. Run the program**
@@ -125,7 +175,7 @@ That's it! A window will open with the grid. Draw some walls, pick an algorithm,
 ## 📁 Project Structure
 
 ```
-pathfinding-visualizer-ai/
+pathfinding-visualizer/
 │
 ├── src/
 │   └── pathfinder.py        # Main application — all algorithms, GUI, and logic
@@ -148,14 +198,16 @@ pathfinding-visualizer-ai/
 
 ## 📚 Learning Purpose
 
-This project was built as a university assignment to help students understand how **AI search algorithms** work in practice. Instead of just reading about A\* or GBFS in a textbook, you can actually _see_ them in action — watching how they explore the grid, make decisions, and eventually find the path.
+This project was built as a university assignment to help students understand how **AI search algorithms** work in practice. Instead of just reading about them in a textbook, you can actually _see_ them in action — watching how they explore the grid, make decisions, and eventually find the path.
 
 It's a hands-on way to learn:
 
-- How **informed search** uses heuristics to make smarter choices
-- The difference between **A\*** (optimal) and **GBFS** (fast but not always optimal)
-- How **Manhattan** vs **Euclidean** distance affects the search behavior
+- The difference between **informed** (A\*, GBFS) and **uninformed** (BFS, DFS, UCS, IDDFS, Bidirectional BFS) search
+- How **heuristics** help algorithms make smarter choices
+- Why **A\*** always finds the shortest path, while **DFS** often doesn't
+- How **Manhattan** vs **Euclidean** distance affects algorithm behavior
 - What the **frontier**, **explored set**, and **path** look like during a real search
+- How **Bidirectional BFS** can find paths faster by searching from both ends
 
 ---
 
